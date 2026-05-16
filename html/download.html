@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SysMonitor - Download</title>
+  <link rel="stylesheet" href="../CSS/style.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">SysMonitor</span>
+    </div>
+    <nav class="header-nav">
+      <a href="index.html" class="nav-link">Dashboard</a>
+      <a href="sobre.html" class="nav-link">Sobre</a>
+      <a href="download.html" class="nav-link active">Download</a>
+    </nav>
+    <div class="header-status">
+      <span class="status-dot"></span>
+      <span>Sistema Online</span>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <section class="about-hero">
+      <h1 class="about-title">Download &amp; <span class="highlight">Documentação</span></h1>
+      <p class="about-desc">
+        Siga as instruções abaixo para compilar e executar o SysMonitor no seu Windows.
+        Requisitos: Windows 10/11 (64 bits), GCC/MinGW-w64 e um navegador moderno.
+      </p>
+    </section>
+
+    <!-- REQUISITOS -->
+    <section class="doc-section">
+      <h2 class="section-title">Requisitos do Sistema</h2>
+      <div class="req-grid">
+        <div class="req-card">
+          <div class="req-icon">🖥</div>
+          <div class="req-title">Sistema Operacional</div>
+          <div class="req-desc">Windows 10 ou 11 (64 bits)</div>
+        </div>
+        <div class="req-card">
+          <div class="req-icon">🧠</div>
+          <div class="req-title">Memória RAM</div>
+          <div class="req-desc">Mínimo 4 GB</div>
+        </div>
+        <div class="req-card">
+          <div class="req-icon">⚙️</div>
+          <div class="req-title">Compilador</div>
+          <div class="req-desc">GCC via MinGW-w64</div>
+        </div>
+        <div class="req-card">
+          <div class="req-icon">🌐</div>
+          <div class="req-title">Navegador</div>
+          <div class="req-desc">Chrome, Firefox ou Edge</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALAÇÃO -->
+    <section class="doc-section">
+      <h2 class="section-title">Como Instalar e Executar</h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Instale o MinGW-w64</div>
+            <div class="step-desc">
+              Baixe e instale o MinGW-w64 em
+               <a href="https://www.msys2.org/">MSYS2</a>. Certifique-se de
+              adicionar o caminho do GCC à variável de ambiente PATH do Windows.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Compile o programa C</div>
+            <div class="step-desc">
+              Abra o terminal (MSYS2 MinGW-w64) na pasta do projeto e execute:
+            </div>
+            <pre class="code-block">gcc backend/sysmonitor_api.c -o sysmonitor.exe -lws2_32 -lpdh -liphlpapi -lpsapi -lntdll -O2</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Execute o programa</div>
+            <div class="step-desc">
+              Execute o arquivo gerado. Ele irá coletar dados do sistema e
+              gerar o arquivo <code>sysdata.json</code> na mesma pasta.
+            </div>
+            <pre class="code-block">.\sysmonitor.exe</pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Abra o Dashboard</div>
+            <div class="step-desc">
+              Abra o arquivo <code>html/index.html</code> no seu navegador.
+              O dashboard irá ler o <code>sysdata.json</code> automaticamente
+              e atualizar a cada 2 segundos.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- APIs UTILIZADAS -->
+    <section class="doc-section">
+      <h2 class="section-title">APIs do Windows Utilizadas</h2>
+      <table class="process-table">
+        <thead>
+          <tr>
+            <th>API</th>
+            <th>Biblioteca</th>
+            <th>Uso no Projeto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>PDH (Performance Data Helper)</td>
+            <td><code>pdh.lib</code></td>
+            <td>Coleta uso de CPU por núcleo</td>
+          </tr>
+          <tr>
+            <td>PSAPI</td>
+            <td><code>psapi.lib</code></td>
+            <td>Lista processos e uso de memória por processo</td>
+          </tr>
+          <tr>
+            <td>GlobalMemoryStatusEx</td>
+            <td><code>kernel32</code></td>
+            <td>Lê total e uso de memória RAM</td>
+          </tr>
+          <tr>
+            <td>GetIfTable</td>
+            <td><code>iphlpapi.lib</code></td>
+            <td>Monitora tráfego de rede (bytes enviados/recebidos)</td>
+          </tr>
+          <tr>
+            <td>GetDiskFreeSpaceEx</td>
+            <td><code>kernel32</code></td>
+            <td>Lê uso de disco (livre/total)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>SysMonitor &copy; 2026 — Projeto Acadêmico UniÍtalo</span>
+    <span>ODS 9 — Inovação e Infraestrutura</span>
+  </footer>
+
+</body>
+</html>

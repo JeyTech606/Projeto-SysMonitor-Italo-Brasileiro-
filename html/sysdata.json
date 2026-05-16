@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-03-26T14:30:00",
+  "cpu": {
+    "usage_pct": 34.7,
+    "cores": 8
+  },
+  "ram": {
+    "usage_pct": 62.3,
+    "used_bytes": 10637418496,
+    "total_bytes": 17062354944
+  },
+  "disk": {
+    "usage_pct": 48.5,
+    "free_bytes": 257698037760,
+    "total_bytes": 500107862016
+  },
+  "network": {
+    "send_bytes_sec": 45200,
+    "recv_bytes_sec": 128400
+  },
+  "processes": [
+    { "pid": 4,    "name": "System",               "cpu_pct": 0.1,  "ram_bytes": 20480     },
+    { "pid": 848,  "name": "svchost.exe",           "cpu_pct": 0.3,  "ram_bytes": 15728640  },
+    { "pid": 1024, "name": "explorer.exe",          "cpu_pct": 0.5,  "ram_bytes": 83886080  },
+    { "pid": 1336, "name": "chrome.exe",            "cpu_pct": 5.2,  "ram_bytes": 314572800 },
+    { "pid": 2048, "name": "code.exe",              "cpu_pct": 3.8,  "ram_bytes": 209715200 },
+    { "pid": 3112, "name": "sysmonitor.exe",        "cpu_pct": 0.4,  "ram_bytes": 1048576   },
+    { "pid": 4020, "name": "SearchIndexer.exe",     "cpu_pct": 1.2,  "ram_bytes": 52428800  },
+    { "pid": 4560, "name": "MsMpEng.exe",           "cpu_pct": 2.1,  "ram_bytes": 104857600 },
+    { "pid": 5200, "name": "Teams.exe",             "cpu_pct": 8.4,  "ram_bytes": 524288000 },
+    { "pid": 5880, "name": "RuntimeBroker.exe",     "cpu_pct": 0.2,  "ram_bytes": 31457280  },
+    { "pid": 6100, "name": "dwm.exe",               "cpu_pct": 1.0,  "ram_bytes": 62914560  },
+    { "pid": 6720, "name": "audiodg.exe",           "cpu_pct": 0.1,  "ram_bytes": 10485760  },
+    { "pid": 7040, "name": "ctfmon.exe",            "cpu_pct": 0.0,  "ram_bytes": 5242880   },
+    { "pid": 7600, "name": "WmiPrvSE.exe",          "cpu_pct": 0.6,  "ram_bytes": 20971520  },
+    { "pid": 8200, "name": "lsass.exe",             "cpu_pct": 0.2,  "ram_bytes": 15728640  }
+  ]
+}
